@@ -1,0 +1,32 @@
+<h1>Users</h1>
+
+
+<table border="2">
+    <tr>
+        <th>Name</th>
+	<th>Age</th>
+    </tr>
+
+    <% @users.each do |user| %>
+        <tr>
+            <td><%= user.name %></td>
+	    <td><%= user.age %></td>
+	</tr>
+    <% end %>
+</table>
+
+<p>
+<%= link_to "Return to Index", root_path %>
+</p>
+
+<!-- Another way to show all the users is an unordered list -->
+
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      Name: <%= user.name %>; Age: <%= user.age %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Back', root_path %>

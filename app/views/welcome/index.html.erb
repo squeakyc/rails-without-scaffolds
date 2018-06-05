@@ -1,0 +1,28 @@
+<h1>Home Page</h1>
+
+<!-- This form is using the form_tag form helper -->
+<div style="margin:40px;">
+  <h3>Create a User</h3>
+  <%= form_tag create_users_path do %>
+  	<%= text_field_tag :name, nil, placeholder: "Your Name" %><br />
+  	<%= number_field_tag :age, nil, placeholder: "Your Age" %><br />
+    <%= submit_tag "Create Profile" %>
+  <% end %>
+</div>
+
+<!-- This form is using the form_for form helper -->
+<div style="margin:40px;">
+    <h3>Create a Product</h3>
+    <%= form_for @product do |f| %>
+    <!-- call methods with form_for: -->
+	<%= f.text_field :name, placeholder: "Product Name" %><br />
+	<%= f.number_field :price, placeholder: "Price", step: :any %><br />
+  <!-- step: :any has something to do with allowing non-integer numbers to be entered -->
+	<%= f.number_field :quantity, placeholder: "Quantity" %><br />
+	<%= f.submit %>
+    <% end %>
+</div>
+
+<!-- action is to form-tags like href is to html.  The first argument to form_tag is a PATH. The form has to submit somewhere - your server. The path handles the form submission.  -->
+<!-- nil is what it's prepopulated with, so you can make that whatever you want -->
+<!-- placeholder - useful if they forget to fill out one of the fields, they don't have to redo everything, just the one they forgot -->
